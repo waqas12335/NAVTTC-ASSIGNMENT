@@ -1,0 +1,54 @@
+body {
+    background-color: white;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    height: 60px;
+    padding: 0 20px;
+  }
+  
+  .navbar h1 {
+    font-size: 26px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .navbar input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    width: 250px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .navbar .right {
+    position: absolute;
+    right: 30px;
+  }
+  
+  .navbar i {
+    padding: 15px;
+    color: #333;
+    transition: 0.3s;
+  }
+  
+  .navbar .right i:hover {
+    transform: scale(1.1);
+    color: #00bcd4;
+  }
