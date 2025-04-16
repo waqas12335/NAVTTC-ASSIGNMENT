@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beautiful Result Table - Bootstrap</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .result-table {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th {
+      font-size: 1.1rem;
+    }
+    .badge-pass {
+      background-color: #28a745;
+    }
+    .badge-fail {
+      background-color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4 fw-bold text-primary">📚 Student Result Table</h2>
+    
+    <div class="table-responsive result-table">
+      <table class="table table-bordered table-hover text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Total Marks</th>
+            <th>Obtained Marks</th>
+            <th>Percentage</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1010</td>
+            <td>Sajid Ali</td>
+            <td>1100</td>
+            <td>500</td>
+            <td>45.5%</td>
+            <td><span class="badge badge-pass text-white">Fail</span></td>
+          </tr>
+          <tr>
+            <td>1011</td>
+            <td>Majid Ali</td>
+            <td>1100</td>
+            <td>450</td>
+            <td>40.9%</td>
+            <td><span class="badge badge-fail text-white">Fail</span></td>
+          </tr>
+          <tr>
+            <td>1012</td>
+            <td>Sajjad Ali</td>
+            <td>1100</td>
+            <td>800</td>
+            <td>72.7%</td>
+            <td><span class="badge badge-pass text-white">Pass</span></td>
+          </tr>
+          <tr>
+            <td>1013</td>
+            <td>Noor Zahra</td>
+            <td>1100</td>
+            <td>750</td>
+            <td>68.2%</td>
+            <td><span class="badge badge-pass text-white">Pass</span></td>
+          </tr>
+          <tr>
+            <td>1014</td>
+            <td>Ali Raza</td>
+            <td>1100</td>
+            <td>430</td>
+            <td>39.1%</td>
+            <td><span class="badge badge-fail text-white">Fail</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
