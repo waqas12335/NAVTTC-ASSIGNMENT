@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Application Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> -->
+  <style>
+    body {
+      background: linear-gradient(to right, #dbeafe, #f0fdf4);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .form-container {
+      max-width: 750px;
+      margin: 50px auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #374151;
+    }
+
+    .form-control,
+    .form-select {
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 16px;
+      border: 1px solid #cbd5e1;
+      transition: border-color 0.3s;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+    }
+
+    .btn-primary {
+      background-color: #6366f1;
+      border: none;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      width: 100%;
+      border-radius: 12px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .btn-primary:hover {
+      background-color: #4f46e5;
+      transform: scale(1.02);
+    }
+
+    .form-check-label a {
+      color: #3b82f6;
+      text-decoration: underline;
+    }
+
+    .modal-body ul {
+      padding-left: 20px;
+    }
+
+    .modal-body li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Apply for a Job</h2>
+    <form>
+      <div class="mb-3">
+        <label>Full Name</label>
+        <input type="text" class="form-control" placeholder="e.g. Waqas Ahmed" required />
+      </div>
+
+      <div class="mb-3">
+        <label>Email Address</label>
+        <input type="email" class="form-control" placeholder="e.g. example@mail.com" required />
+      </div>
+
+      <div class="mb-3">
+        <label>Phone Number</label>
+        <input type="tel" class="form-control" placeholder="e.g. +92 300 1234567" required />
+      </div>
+
+      <div class="mb-3">
+        <label>Upload Your Resume</label>
+        <input type="file" class="form-control" accept=".pdf,.doc,.docx" required />
+      </div>
+
+      <div class="mb-3">
+        <label>Position Applying For</label>
+        <select class="form-select" required>
+          <option selected disabled>Select a position</option>
+          <option>Web Developer</option>
+          <option>Graphic Designer</option>
+          <option>Project Manager</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label>Cover Letter</label>
+        <textarea class="form-control" rows="4" placeholder="Write something about yourself..." required></textarea>
+      </div>
+
+      <div class="form-check mb-4">
+        <input class="form-check-input" type="checkbox"  required />
+        <label class="form-check-label">
+          I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms & Conditions</a>.
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit Application</button>
+    </form>
+  </div>
+
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="termsModalLabel">Terms & Conditions</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p><strong>Dear Applicant,</strong></p>
+            <p>Please read this carefully before submitting your application:</p>
+            <ul>
+              <li>🔒 Your personal data will be kept confidential and used only for hiring purposes.</li>
+              <li>🕐 Make sure all information is accurate. False information may disqualify your application.</li>
+              <li>📞 We may contact you via email or phone for further verification or interviews.</li>
+              <li>📁 Submission does not guarantee a job offer. Every application is thoroughly reviewed.</li>
+              <li>✅ By submitting, you agree to allow us to process and store your information for recruitment.</li>
+            </ul>
+            <p>Thanks for applying, and we wish you all the best! 😊</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
