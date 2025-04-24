@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create & Edit Profile</title>
+  <style>
+    /* Global Reset & Font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f0f2f5, #dce3f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    h3 {
+      text-align: center;
+      color: #3d4a7a;
+      margin-bottom: 20px;
+    }
+
+    .form-section,
+    .profile {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 420px;
+      transition: transform 0.3s ease;
+    }
+
+    .form-section:hover,
+    .profile:hover {
+      transform: translateY(-4px);
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: #4e73df;
+      outline: none;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 8px;
+    }
+
+    .create-btn {
+      background: linear-gradient(90deg, #4e73df, #6c63ff);
+      color: white;
+    }
+
+    .create-btn:hover {
+      background: linear-gradient(90deg, #3d5be0, #574bff);
+      box-shadow: 0 8px 20px rgba(78, 115, 223, 0.3);
+    }
+
+    .edit-btn {
+      background-color: #ffc107;
+      color: #333;
+    }
+
+    .edit-btn:hover {
+      background-color: #e0a800;
+      box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+    }
+
+    .profile div {
+      margin-bottom: 12px;
+      color: #444;
+      font-size: 16px;
+    }
+
+    .profile span {
+      font-weight: bold;
+      color: #222;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal input {
+      margin: 10px 0;
+    }
+
+    .modal-btn-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .modal-btn-group button {
+      flex: 1;
+    }
+
+    .save-btn {
+      background: linear-gradient(90deg, #4e73df, #6c63ff);
+      color: white;
+    }
+
+    .save-btn:hover {
+      background: linear-gradient(90deg, #3d5be0, #574bff);
+      box-shadow: 0 8px 20px rgba(78, 115, 223, 0.3);
+    }
+
+    .cancel-btn {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .cancel-btn:hover {
+      background-color: #d32f2f;
+      box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media screen and (max-width: 500px) {
+      body {
+        padding: 20px;
+      }
+
+      .form-section,
+      .profile {
+        padding: 20px;
+      }
+
+      .modal-content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Form Section -->
+  <div class="form-section" id="formSection">
+    <h3>Create Your Profile</h3>
+    <input type="text" id="nameInput" placeholder="Enter Name" />
+    <input type="email" id="emailInput" placeholder="Enter Email" />
+    <input type="text" id="contactInput" placeholder="Enter Contact" />
+    <input type="text" id="addressInput" placeholder="Enter Address" />
+    <button class="btn create-btn" onclick="createProfile()">Create Profile</button>
+  </div>
+
+  <!-- Profile Section -->
+  <div class="profile hidden" id="profileSection">
+    <h3>Profile Details</h3>
+    <div><strong>Name:</strong> <span id="userName"></span></div>
+    <div><strong>Email:</strong> <span id="userEmail"></span></div>
+    <div><strong>Contact:</strong> <span id="userContact"></span></div>
+    <div><strong>Address:</strong> <span id="userAddress"></span></div>
+    <button class="btn edit-btn" onclick="openModal()">Edit Profile</button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="editModal">
+    <div class="modal-content">
+      <h3>Edit Profile</h3>
+      <input type="text" id="editName" placeholder="Name" />
+      <input type="email" id="editEmail" placeholder="Email" />
+      <input type="text" id="editContact" placeholder="Contact" />
+      <input type="text" id="editAddress" placeholder="Address" />
+      <div class="modal-btn-group">
+        <button class="btn save-btn" onclick="saveInfo()">Save</button>
+        <button class="btn cancel-btn" onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let userName = "", userEmail = "", userContact = "", userAddress = "";
+
+    function createProfile() {
+      userName = document.getElementById("nameInput").value;
+      userEmail = document.getElementById("emailInput").value;
+      userContact = document.getElementById("contactInput").value;
+      userAddress = document.getElementById("addressInput").value;
+
+      document.getElementById("userName").textContent = userName;
+      document.getElementById("userEmail").textContent = userEmail;
+      document.getElementById("userContact").textContent = userContact;
+      document.getElementById("userAddress").textContent = userAddress;
+
+      document.getElementById("formSection").classList.add("hidden");
+      document.getElementById("profileSection").classList.remove("hidden");
+    }
+
+    function openModal() {
+      document.getElementById("editName").value = userName;
+      document.getElementById("editEmail").value = userEmail;
+      document.getElementById("editContact").value = userContact;
+      document.getElementById("editAddress").value = userAddress;
+      document.getElementById("editModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("editModal").style.display = "none";
+    }
+
+    function saveInfo() {
+      userName = document.getElementById("editName").value;
+      userEmail = document.getElementById("editEmail").value;
+      userContact = document.getElementById("editContact").value;
+      userAddress = document.getElementById("editAddress").value;
+
+      document.getElementById("userName").textContent = userName;
+      document.getElementById("userEmail").textContent = userEmail;
+      document.getElementById("userContact").textContent = userContact;
+      document.getElementById("userAddress").textContent = userAddress;
+
+      closeModal();
+    }
+  </script>
+</body>
+</html>
