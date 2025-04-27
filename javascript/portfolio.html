@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waqas Ali - Web Developer</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="container">
+        <div class="logo">WA</div>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div id="particles-js"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-image">
+            <img
+              src="./Assests/WhatsApp_Image_2025-03-30_at_20.12.29-removebg-preview.png"
+              alt="Waqas Ali"
+              class="profile-img"
+            />
+          </div>
+          <div class="hero-text">
+            <h1>Waqas Ali</h1>
+            <p>I'm a <span id="typed"></span></p>
+            <div class="hero-btns">
+              <a href="#contact" class="btn btn-primary">Contact Me</a>
+              <a href="#projects" class="btn btn-secondary">View My Work</a>
+            </div>
+            <div class="social-icons">
+              <a
+                href="https://www.instagram.com/waqass_bin_wahid/?hl=en"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/waqas-ali-1a4a73361"
+                target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-down">
+          <a href="#about">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>About Me</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="about-content">
+          <div class="about-image" data-aos="fade-right">
+            <div class="about-image-wrapper">
+              <img
+                src="./Assests/WhatsApp Image 2025-03-30 at 20.12.28.jpeg"
+                alt="About Waqas Ali"
+              />
+            </div>
+          </div>
+          <div class="about-text" data-aos="fade-left">
+            <h3>Web Developer & Quran Tutor</h3>
+            <p>
+              I'm a passionate and motivated student who has recently completed
+              Intermediate education. Currently, I am enrolled in a Web
+              Development course under the CIT program offered by NAVTTC. I’m
+              eager to learn new technologies, improve my coding skills, and
+              grow in the field of web development. My goal is to become a
+              skilled full-stack developer and contribute to meaningful projects
+              that solve real-world problems. I believe in continuous learning
+              and am always open to exploring new tools, frameworks, and
+              techniques in tech.
+            </p>
+            <div class="about-info">
+              <div class="about-item">
+                <span>Name:</span>
+                <p>Waqas Ali</p>
+              </div>
+              <div class="about-item">
+                <span>Email:</span>
+                <p>codes.waqasali@gmail.com</p>
+              </div>
+              <div class="about-item">
+                <span>Age:</span>
+                <p>19</p>
+              </div>
+              <div class="about-item">
+                <span>From:</span>
+                <p>Pakistan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>My Skills</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="skills-content">
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="skill-info">
+              <span>HTML5</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level html"></div>
+            </div>
+          </div>
+
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="skill-info">
+              <span>CSS3</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level css"></div>
+            </div>
+          </div>
+
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="skill-info">
+              <span>Bootstrap 5</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level bootstrap"></div>
+            </div>
+          </div>
+
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="skill-info">
+              <span>JavaScript (ES6+)</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level javascript"></div>
+            </div>
+          </div>
+
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
+            <div class="skill-info">
+              <span>Sales Communication</span>
+              <span>95%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level sales"></div>
+            </div>
+          </div>
+
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="600">
+            <div class="skill-info">
+              <span>Quran Teaching</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level quran"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>My Projects</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web Design</button>
+          <button class="filter-btn" data-filter="app">Apps</button>
+          <button class="filter-btn" data-filter="other">Other</button>
+        </div>
+        <div class="projects-grid">
+          <div class="project-item web" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-image">
+              <img
+                src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg"
+                alt="Project 1"
+              />
+              <div class="project-overlay">
+                <div class="project-info">
+                  <h3>E-commerce Website</h3>
+                  <p>HTML, CSS, JavaScript</p>
+                  <a href="#" class="project-link"
+                    ><i class="fas fa-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-item app" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-image">
+              <img
+                src="https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg"
+                alt="Project 2"
+              />
+              <div class="project-overlay">
+                <div class="project-info">
+                  <h3>To-Do App</h3>
+                  <p>HTML, CSS, JavaScript</p>
+                  <a href="#" class="project-link"
+                    ><i class="fas fa-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-item web" data-aos="fade-up" data-aos-delay="300">
+            <div class="project-image">
+              <img
+                src="https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg"
+                alt="Project 3"
+              />
+              <div class="project-overlay">
+                <div class="project-info">
+                  <h3>Portfolio Template</h3>
+                  <p>HTML, CSS, Bootstrap</p>
+                  <a href="#" class="project-link"
+                    ><i class="fas fa-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-item other"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="project-image">
+              <img
+                src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg"
+                alt="Project 4"
+              />
+              <div class="project-overlay">
+                <div class="project-info">
+                  <h3>Quran Learning Platform</h3>
+                  <p>HTML, CSS, JavaScript</p>
+                  <a href="#" class="project-link"
+                    ><i class="fas fa-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-item app" data-aos="fade-up" data-aos-delay="500">
+            <div class="project-image">
+              <img
+                src="https://images.pexels.com/photos/5473298/pexels-photo-5473298.jpeg"
+                alt="Project 5"
+              />
+              <div class="project-overlay">
+                <div class="project-info">
+                  <h3>Weather App</h3>
+                  <p>HTML, CSS, JavaScript, API</p>
+                  <a href="#" class="project-link"
+                    ><i class="fas fa-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-item web" data-aos="fade-up" data-aos-delay="600">
+            <div class="project-image">
+              <img
+                src="https://images.pexels.com/photos/35550/ipad-tablet-technology-touch.jpg"
+                alt="Project 6"
+              />
+              <div class="project-overlay">
+                <div class="project-info">
+                  <h3>Restaurant Website</h3>
+                  <p>HTML, CSS, JavaScript</p>
+                  <a href="#" class="project-link"
+                    ><i class="fas fa-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>Experience & Education</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Intermediate (FSc Pre-Engineering)</h3>
+              <h4> Grade: B (65.09%) </h4>
+              <p class="timeline-date">
+                <i class="fas fa-calendar-alt"></i> Aug 2023 - May 2024
+              </p>
+              <p>
+                Govt. Ghulam Hussain Hidayat Ullah Higher Secondary School
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Matriculation, Biology, Chemistry, Physics (Bio Science)</h3>
+              <h4>Grade: A (76.72%)</h4>
+              <p class="timeline-date">
+                <i class="fas fa-calendar-alt"></i> Apr 2021 - May 2022
+              </p>
+              <p>
+                Govt. Ghulam Hussain Hidayat Ullah Higher Secondary School
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Salesman</h3>
+              <p class="timeline-date">
+                <i class="fas fa-calendar-alt"></i> Jun 2021 to Dec 2022
+              </p>
+              <p>
+                Local Garment Shop · Full-time
+                Jun 2021 to Dec 2022 · 1 yr 7 mos
+               Hyderabad, Sindh, Pakistan · On-site
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Quran Tutor</h3>
+              <p class="timeline-date">
+                <i class="fas fa-calendar-alt"></i> May 2019 - Nov 2021
+              </p>
+              <p>
+                Self-Employed & In-Person Teaching · Part-timeSelf-Employed & In-Person Teaching · Part-time
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>What People Say</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="testimonials-slider">
+          <div class="testimonial-container">
+            <div class="testimonial active">
+              <div class="testimonial-content">
+                <div class="testimonial-text">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    Waqas is an exceptional web developer. His attention to
+                    detail and commitment to quality made our project a huge
+                    success. I would highly recommend him for any web
+                    development work.
+                  </p>
+                </div>
+                <div class="testimonial-person">
+                  <div class="testimonial-avatar">
+                    <img
+                      src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
+                      alt="John Doe"
+                    />
+                  </div>
+                  <div class="testimonial-info">
+                    <h3>John Doe</h3>
+                    <p>CEO, Tech Innovations</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial">
+              <div class="testimonial-content">
+                <div class="testimonial-text">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    Working with Waqas was a pleasure. His sales communication
+                    skills are top-notch, and he always delivers results ahead
+                    of schedule. A true professional in every sense.
+                  </p>
+                </div>
+                <div class="testimonial-person">
+                  <div class="testimonial-avatar">
+                    <img
+                      src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+                      alt="Sarah Johnson"
+                    />
+                  </div>
+                  <div class="testimonial-info">
+                    <h3>Sarah Johnson</h3>
+                    <p>Marketing Director, ABC Agency</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial">
+              <div class="testimonial-content">
+                <div class="testimonial-text">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    As Waqas's Quran student, I can attest to his patience and
+                    profound knowledge. His teaching methods are effective and
+                    he explains complex concepts with remarkable clarity.
+                  </p>
+                </div>
+                <div class="testimonial-person">
+                  <div class="testimonial-avatar">
+                    <img
+                      src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+                      alt="Ahmed Khan"
+                    />
+                  </div>
+                  <div class="testimonial-info">
+                    <h3>Ahmed Khan</h3>
+                    <p>Student</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>Get In Touch</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info" data-aos="fade-right">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-info-text">
+                <h3>Location</h3>
+                <p>Hyderabad Sindh, Pakistan</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-info-text">
+                <h3>Email</h3>
+                <p>codes.waqasali@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-info-text">
+                <h3>Phone</h3>
+                <p>+92 3192943335</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-info-text">
+                <h3>Available Hours</h3>
+                <p>Mon - Fri: 9am - 5pm</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form" data-aos="fade-left">
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required />
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                />
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="subject"
+                  placeholder="Subject"
+                  required
+                />
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+                <span class="form-error"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3>Waqas Ali</h3>
+            <p>Web Developer | Salesman | Quran Tutor</p>
+          </div>
+
+          <div class="footer-social">
+            <a
+              href="https://www.instagram.com/waqass_bin_wahid/?hl=en"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/waqas-ali-1a4a73361"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Waqas Ali. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Custom JS -->
+    <script src="portfolio.js"></script>
+  </body>
+</html>
