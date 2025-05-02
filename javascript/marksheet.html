@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Academic Dashboard</title>
+  <style>
+    /* Modern CSS Variables */
+    :root {
+      --primary: #5e35b1;
+      --primary-light: #7e57c2;
+      --primary-dark: #4527a0;
+      --secondary: #26c6da;
+      --accent: #ff4081;
+      --success: #66bb6a;
+      --warning: #ffa726;
+      --danger: #ef5350;
+      --dark: #263238;
+      --light: #f5f5f5;
+      --gray: #b0bec5;
+      --white: #ffffff;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+      --shadow-xl: 0 20px 40px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.05);
+      --border-radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    /* Container Styles */
+    .dashboard {
+      width: 100%;
+      max-width: 1000px;
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+      z-index: 1;
+    }
+
+    .dashboard::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      z-index: 2;
+    }
+
+    .dashboard:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Header Styles */
+    .header {
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(94, 53, 177, 0.05) 0%, rgba(255, 64, 129, 0.05) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .header p {
+      color: var(--dark);
+      opacity: 0.8;
+      font-size: 1.1rem;
+    }
+
+    /* Main Content */
+    .content {
+      padding: 2rem;
+    }
+
+    /* Results Section */
+    .results {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    /* Stats Cards */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      text-align: center;
+      border-top: 4px solid var(--primary);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-card h3 {
+      font-size: 1rem;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .stat-card .value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    /* Enhanced Table */
+    .marks-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin: 2rem 0;
+    }
+
+    .marks-table th {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
+      padding: 1.2rem 1.5rem;
+      text-align: left;
+    }
+
+    .marks-table td {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      font-size: 1rem;
+    }
+
+    .marks-table tr:not(:last-child) td {
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .marks-table tr:hover td {
+      background-color: rgba(94, 53, 177, 0.03);
+    }
+
+    .marks-table tfoot td {
+      font-weight: 700;
+      background-color: rgba(94, 53, 177, 0.05);
+      font-size: 1.1rem;
+    }
+
+    /* Subject Progress Bars */
+    .progress-container {
+      margin-top: 0.5rem;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background-color: rgba(0,0,0,0.05);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 0.3rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+      border-radius: 3px;
+      transition: width 0.6s ease;
+    }
+
+    /* Grade Display */
+    .grade-display {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    .grade-Aplus { background-color: rgba(102, 187, 106, 0.1); color: var(--success); }
+    .grade-A { background-color: rgba(102, 187, 106, 0.1); color: var(--success); }
+    .grade-B { background-color: rgba(255, 167, 38, 0.1); color: var(--warning); }
+    .grade-C { background-color: rgba(255, 167, 38, 0.2); color: var(--warning); }
+    .grade-D { background-color: rgba(239, 83, 80, 0.1); color: var(--danger); }
+    .grade-Fail { background-color: rgba(239, 83, 80, 0.2); color: var(--danger); }
+
+    /* Action Buttons */
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(94, 53, 177, 0.05);
+    }
+
+    .btn-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Message Styles */
+    .message {
+      text-align: center;
+      padding: 2rem;
+      background: var(--light);
+      border-radius: var(--border-radius);
+      margin: 2rem 0;
+      border-left: 4px solid var(--accent);
+    }
+
+    .message h3 {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    .message p {
+      color: var(--dark);
+      opacity: 0.8;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header h2 {
+        font-size: 2rem;
+      }
+      
+      .stats-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .marks-table {
+        font-size: 0.9rem;
+      }
+      
+      .marks-table th, 
+      .marks-table td {
+        padding: 0.8rem;
+      }
+      
+      .actions {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+
+    /* Dark Mode Support */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --dark: #eceff1;
+        --light: #37474f;
+        --white: #263238;
+        --gray: #78909c;
+      }
+      
+      body {
+        background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+      }
+      
+      .stat-card,
+      .marks-table,
+      .message {
+        background-color: #37474f;
+        color: var(--dark);
+      }
+      
+      .marks-table td {
+        border-bottom-color: rgba(255,255,255,0.05);
+      }
+      
+      .progress-bar {
+        background-color: rgba(255,255,255,0.1);
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body onload="initDashboard()">
+
+  <div class="dashboard">
+    <div class="header">
+      <h2>Academic Performance Dashboard</h2>
+      <p>Comprehensive overview of your academic results</p>
+    </div>
+    
+    <div class="content">
+      <div id="results" class="results"></div>
+    </div>
+  </div>
+
+  <script>
+    function getValidMarks(subjectName) {
+      let marks;
+      do {
+        marks = parseFloat(prompt(`Enter marks for ${subjectName} (0 to 100):`));
+        if (isNaN(marks) || marks < 0 || marks > 100) {
+          alert("Invalid input! Please enter a number between 0 and 100.");
+        }
+      } while (isNaN(marks) || marks < 0 || marks > 100);
+      return marks;
+    }
+
+    function calculateGrade(percentage) {
+      if (percentage >= 80) return { grade: "A+", class: "grade-Aplus" };
+      if (percentage >= 70) return { grade: "A", class: "grade-A" };
+      if (percentage >= 60) return { grade: "B", class: "grade-B" };
+      if (percentage >= 50) return { grade: "C", class: "grade-C" };
+      if (percentage >= 40) return { grade: "D", class: "grade-D" };
+      return { grade: "Fail", class: "grade-Fail" };
+    }
+
+    function renderDashboard(subjects, marks) {
+      const total = marks.reduce((acc, val) => acc + val, 0);
+      const percentage = (total / (subjects.length * 100)) * 100;
+      const gradeInfo = calculateGrade(percentage);
+      
+      // Stats Cards
+      const statsHTML = `
+        <div class="stats-container">
+          <div class="stat-card">
+            <h3>Total Marks</h3>
+            <div class="value">${total}</div>
+            <p>out of ${subjects.length * 100}</p>
+          </div>
+          <div class="stat-card">
+            <h3>Percentage</h3>
+            <div class="value">${percentage.toFixed(2)}%</div>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: ${percentage}%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <h3>Grade</h3>
+            <div class="value ${gradeInfo.class}">${gradeInfo.grade}</div>
+            <div class="grade-display ${gradeInfo.class}">${gradeInfo.grade} Grade</div>
+          </div>
+        </div>
+      `;
+      
+      // Subjects Table
+      let tableHTML = `
+        <h3 style="margin-bottom: 1rem; color: var(--primary-dark);">Subject-wise Performance</h3>
+        <table class="marks-table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Marks Obtained</th>
+              <th>Percentage</th>
+              <th>Progress</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+      
+      subjects.forEach((subject, index) => {
+        const subjectPercentage = (marks[index] / 100) * 100;
+        const subjectGrade = calculateGrade(subjectPercentage);
+        
+        tableHTML += `
+          <tr>
+            <td>${subject}</td>
+            <td>${marks[index]}/100</td>
+            <td>${subjectPercentage.toFixed(1)}%</td>
+            <td>
+              <div class="progress-container">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: ${subjectPercentage}%; 
+                    background: ${subjectPercentage >= 80 ? 'linear-gradient(90deg, var(--success), #81c784)' : 
+                                subjectPercentage >= 60 ? 'linear-gradient(90deg, var(--warning), #ffb74d)' : 
+                                'linear-gradient(90deg, var(--danger), #e57373)'}">
+                  </div>
+                </div>
+                <small style="color: ${subjectPercentage >= 80 ? 'var(--success)' : 
+                                 subjectPercentage >= 60 ? 'var(--warning)' : 'var(--danger)'}">
+                  ${subjectGrade.grade}
+                </small>
+              </div>
+            </td>
+          </tr>
+        `;
+      });
+      
+      tableHTML += `
+          </tbody>
+        </table>
+      `;
+      
+      // Action Buttons
+      const actionsHTML = `
+        <div class="actions">
+          <button class="btn btn-primary" onclick="initDashboard()">
+            <i class="fas fa-redo btn-icon"></i> Calculate Again
+          </button>
+          <button class="btn btn-secondary" onclick="showAnalysis()">
+            <i class="fas fa-chart-bar btn-icon"></i> Performance Analysis
+          </button>
+        </div>
+      `;
+      
+      document.getElementById("results").innerHTML = statsHTML + tableHTML + actionsHTML;
+    }
+
+    function showMessage() {
+      document.getElementById("results").innerHTML = `
+        <div class="message">
+          <h3>No Data Entered</h3>
+          <p>You haven't entered any marks yet. Click the button below to start.</p>
+          <div class="actions">
+            <button class="btn btn-primary pulse" onclick="initDashboard()">
+              <i class="fas fa-pencil-alt btn-icon"></i> Enter Marks
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function showAnalysis() {
+      alert("Advanced performance analysis would be displayed here!\n\nThis could include:\n- Subject comparison charts\n- Historical performance trends\n- Strength/weakness analysis\n- Improvement suggestions");
+    }
+
+    function initDashboard() {
+      const confirmInput = confirm("Do you want to enter your marks for the academic dashboard?");
+      
+      if (confirmInput) {
+        const subjects = [
+          "English Literature", 
+          "Mathematics", 
+          "Physics", 
+          "Chemistry", 
+          "Computer Science", 
+          "History"
+        ];
+        const marks = [];
+        
+        subjects.forEach(subject => {
+          marks.push(getValidMarks(subject));
+        });
+        
+        renderDashboard(subjects, marks);
+      } else {
+        showMessage();
+      }
+    }
+  </script>
+
+</body>
+</html>
